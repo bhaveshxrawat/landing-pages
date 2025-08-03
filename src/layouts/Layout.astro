@@ -1,22 +1,57 @@
+---
+import { SEO } from "astro-seo";
+import "@/styles/globals.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+
+interface Props {
+  seoTitle?: string;
+  seoDescription?: string;
+  ogImage?: string;
+}
+
+const {
+  seoTitle = SITE_TITLE,
+  seoDescription = SITE_DESCRIPTION,
+  ogImage = "",
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{seoTitle}</title>
+    <slot name="astrofont"/>
+    <SEO
+      title={seoTitle}
+      description={seoDescription}
+      openGraph={{
+        basic: {
+          title: `${seoTitle}`,
+          type: "website",
+          image: `${ogImage}`,
+          url: `${Astro.url}`,
+        },
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.svg" }],
+        // extending the default meta tags
+        meta: [
+          { name: "twitter:image", content: `${ogImage}` },
+          { name: "twitter:title", content: `${seoTitle}` },
+          {
+            name: "twitter:description",
+            content: `${seoDescription}`,
+          },
+        ],
+      }}
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+  
