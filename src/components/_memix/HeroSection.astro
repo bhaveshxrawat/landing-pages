@@ -1,0 +1,161 @@
+---
+import heroImage from "@/assets/_memix/Hero-image.png";
+import heroDashboardImage from "@/assets/_memix/hero-dashboard.png";
+import noteImage from "@/assets/_memix/icons/note.svg";
+import leafImage from "@/assets/_memix/icons/leaf.svg";
+import { Image, Picture } from "astro:assets";
+---
+
+<section id="hero-section" aria-labelledby="hero-section">
+  <div class="px-10.75 grid grid-cols-1 grid-rows-1">
+    <div
+      role="presentation"
+      class="rounded-b-[3.4375rem] border-[0.7px] border-t-0 border-black/50 overflow-clip col-[1/2] row-start-1 bg-gradient-to-b from-3% from-white to-white/7 self-start">
+      <Picture
+        src={heroImage}
+        formats={["avif", "webp"]}
+        alt={""}
+        priority
+        aria-hidden
+        class="pointer-events-none"
+      />
+    </div>
+    <div class="col-[1/2] row-[1/2] pt-[9.6875rem] px-4">
+      <div
+        class="flex flex-col justify-start items-center gap-8 max-w-[47rem] mx-auto">
+        <h1
+          id="hero-section"
+          class="text-[4rem] font-bold leading-[1.09375] -tracking-[.16rem] text-balance text-center">
+          Meetings bloom into<br />clear, actionable notes <Image
+            src={noteImage}
+            alt=""
+            class="inline"
+            aria-hidden
+          />
+        </h1>
+        <p class="text-lg leading-auto text-[#47404C] text-balance text-center">
+          Every conversation you lead becomes a garden of insights and
+          summarized notes, so you can stay focused
+        </p>
+        <a
+          href="#"
+          class="p-2.5 bg-accent block space-x-7.5 shadow-[.5rem_.5rem_black]">
+          Start capturing meetings
+          <span
+            class="aspect-square p-2.5 inline-flex items-center ml-7.5 justify-center bg-white"
+            aria-hidden>
+            <svg
+              width="21"
+              height="12"
+              viewBox="0 0 21 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.5303 6.53033C20.8232 6.23744 20.8232 5.76256 20.5303 5.46967L15.7574 0.696701C15.4645 0.403807 14.9896 0.403807 14.6967 0.6967C14.4038 0.989594 14.4038 1.46447 14.6967 1.75736L18.9393 6L14.6967 10.2426C14.4038 10.5355 14.4038 11.0104 14.6967 11.3033C14.9896 11.5962 15.4645 11.5962 15.7574 11.3033L20.5303 6.53033ZM0 6L-6.55671e-08 6.75L20 6.75L20 6L20 5.25L6.55671e-08 5.25L0 6Z"
+                fill="black"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+      <div
+        class="mt-[4.0625rem] rounded-3xl p-2 bg-gradient-to-b from-white/0 to-[#FBF3F0] bg-[#D6D6D6]/40 max-w-[56.25rem] mx-auto"
+        role="presentation">
+        <Picture
+          src={heroDashboardImage}
+          formats={["avif", "webp"]}
+          alt={""}
+          priority
+          aria-hidden
+          class="pointer-events-none"
+        />
+      </div>
+    </div>
+    <div
+      class="pointer-events-none col-[1/2] row-[1/2] relative"
+      role="presentation">
+      <img
+        src={leafImage.src}
+        alt={""}
+        class="leaf aspect-square absolute w-[2.9375rem] top-[7.875rem] left-[8.38%]"
+        data-position="top-left"
+        data-rotateY="0"
+        data-rotateZ="-5"
+      />
+      <img
+        src={leafImage.src}
+        alt={""}
+        class="leaf aspect-square absolute w-[1.4375rem] top-[313px] left-[10.55%]"
+        data-position="mid-left"
+        data-rotateY="0"
+        data-rotateZ="-70"
+      />
+      <img
+        src={leafImage.src}
+        alt={""}
+        class="leaf aspect-square absolute w-[4.125rem] top-[31.375rem] left-[30.23%]"
+        data-position="bottom-left"
+        data-rotateY="0"
+        data-rotateZ="-110"
+      />
+      <img
+        src={leafImage.src}
+        alt={""}
+        class="leaf aspect-square absolute w-[4.8125rem] top-[9.6875rem] right-[8.79%]"
+        data-position="top-right"
+        data-rotateY="180"
+        data-rotateZ="0"
+      />
+      <img
+        src={leafImage.src}
+        alt={""}
+        class="leaf aspect-square absolute w-[1.4375rem] top-[313px] right-[4.61%]"
+        data-position="mid-right"
+        data-rotateY="180"
+        data-rotateZ="100"
+      />
+      <img
+        src={leafImage.src}
+        alt={""}
+        class="leaf aspect-square absolute w-[2.9375rem] top-[431px] right-[18.34%]"
+        data-position="bottom-right"
+        data-rotateY="180"
+        data-rotateZ="0"
+      />
+      <img
+        src={leafImage.src}
+        alt={""}
+        class="leaf aspect-square absolute w-[1.7063rem] top-[568px] right-[45.06%]"
+        data-position="bottom"
+        data-rotateY="0"
+        data-rotateZ="-20"
+      />
+    </div>
+  </div>
+</section>
+<script>
+  import { animate, scroll } from "motion";
+  const leaves = document.querySelectorAll<HTMLImageElement>(".leaf");
+  const section = document.querySelector<HTMLElement>(
+    "section#hero-section",
+  );
+  if (section) {
+    leaves.forEach((item)=> {
+      const rotateY = Number(item.dataset.rotatey)
+      const rotateZ = Number(item.dataset.rotatez)
+      const animation = animate(
+      item,
+      { y: [`0`, `-100px`],
+        rotateY: [rotateY, rotateY],
+        rotateZ: [rotateZ, rotateZ]
+       },
+      { ease: "easeInOut" },
+    );
+
+    scroll(animation, {
+      target: section,
+      offset: ["start start", "end start"]
+    });
+    })
+    
+  }
+</script>

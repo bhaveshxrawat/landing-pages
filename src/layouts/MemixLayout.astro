@@ -1,0 +1,23 @@
+---
+import { AstroFont } from "astro-font";
+import Layout from "./Layout.astro";
+---
+
+<Layout seoTitle="Memix" seoDescription="A meeting SaaS app landing page" class:list={["bg-[#FBF3F0]"]}>
+  <AstroFont
+    slot="astrofont"
+    config={[
+      {
+        src: [],
+        name: "Plus Jakarta Sans",
+        // Google Fonts URL
+        googleFontsURL: 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap',
+        preload: true,
+        display: "swap",
+        selector: "body",
+        fallback: "sans-serif",
+      },
+    ]}
+    />
+    <slot/>
+</Layout>

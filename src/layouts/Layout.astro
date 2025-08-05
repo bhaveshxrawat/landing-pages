@@ -7,12 +7,14 @@ interface Props {
   seoTitle?: string;
   seoDescription?: string;
   ogImage?: string;
+  class?: string
 }
 
 const {
   seoTitle = SITE_TITLE,
   seoDescription = SITE_DESCRIPTION,
   ogImage = "",
+  class: classList
 } = Astro.props;
 ---
 
@@ -50,7 +52,7 @@ const {
     />
     <slot name="head" />
   </head>
-  <body>
+  <body class:list={[classList]}>
     <slot />
   </body>
 </html>

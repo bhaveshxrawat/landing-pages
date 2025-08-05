@@ -1,0 +1,17 @@
+---
+import Header from "@/components/_memix/Header.astro";
+import HeroSection from "@/components/_memix/HeroSection.astro";
+import ProblemSection from "@/components/_memix/ProblemSection.astro";
+import MemixLayout from "@/layouts/MemixLayout.astro";
+---
+
+<MemixLayout>
+  <div class="max-w-[80rem] mx-auto relative">
+    <Header />
+    <main class="min-h-[400vh]">
+      <HeroSection />
+      <ProblemSection />
+    </main>
+    <footer></footer>
+  </div>
+</MemixLayout>

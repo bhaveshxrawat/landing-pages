@@ -1,5 +1,4 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,5 +6,12 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<main class="p-4">
+		<header>
+			<h1 class="text-3xl font-semibold">Pages</h1>
+		</header>
+		<ul class="text-xl">
+			<ol><a href="./memix">Memix - Designed By <a href="https://x.com/@SumaiyaSsa" target="_blank" referrerpolicy="no-referrer">Sumaiya</a></a></ol>
+		</ul>
+	</main>
 </Layout>
