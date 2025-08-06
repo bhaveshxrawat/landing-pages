@@ -1,0 +1,66 @@
+---
+import brainImage from "@/assets/_memix/icons/brain.svg";
+import handshakeImage from "@/assets/_memix/icons/handshake.svg";
+import recordImage from "@/assets/_memix/icons/record-fill.svg";
+---
+
+<section id="problems-section" aria-label="Problems we're trying to solve">
+  <div class="py-33">
+    <p
+      class="max-w-[53.625rem] text-center space-y-1 mx-auto text-[2.75rem] font-semibold leading-normal -tracking-[.11rem]">
+      <span class="block first-half">Meetings are moving fast while you’re</span
+      >
+      <span class="block first-half"
+        >listening and still trying to remember <img
+          src={brainImage.src}
+          alt=""
+          class="inline align-text-top"
+        /></span
+      >
+      <span class="block first-half"
+        >While other AI notes feel cold, <span class="text-black/29 last-half"
+          >Memix listens</span
+        ></span
+      >
+      <span class="block text-black/29 last-half"
+        >like a human, thinks like a teammate, <img
+          src={handshakeImage.src}
+          alt=""
+          class="inline align-text-top"
+        /></span
+      >
+      <span class="block text-black/29 last-half"
+        >and captures <img
+          src={recordImage.src}
+          alt=""
+          class="inline align-text-top"
+        /> what matters</span
+      >
+    </p>
+  </div>
+</section>
+<script>
+  import { animate, scroll } from "motion";
+  const firstHalves = document.querySelectorAll<HTMLSpanElement>(".first-half");
+  const secondHalves =
+    document.querySelectorAll<HTMLSpanElement>(".last-half");
+  const section = document.querySelector<HTMLElement>("section#problems-section");
+    if(section) {
+      const firstHalfAnimation = animate(
+        firstHalves,
+        { color: ["rgba(0, 0, 0, 1)", "rgba(0, 0, 0, .3)"] },
+        {ease: "easeOut"},
+      );
+      const secondHalfAnimation = animate(
+        secondHalves,
+        { color: ["rgba(0, 0, 0, .3)", "rgba(0, 0, 0, 1)"] },
+        {ease: "easeIn"},
+      );
+      [firstHalfAnimation, secondHalfAnimation].forEach((animation, idx) => {
+        scroll(animation, {
+          target: section,
+          offset: idx === 0 ? ["end end", "end center"] : ["start center" , "start start"]
+        })
+      })
+    }
+</script>
