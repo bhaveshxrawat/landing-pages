@@ -3,3 +3,18 @@
 @theme {
   --color-accent: rgba(212, 152, 255, 1);
 }
+
+@layer base {
+  h2 {
+    @apply text-[3.5rem] font-semibold leading-[3.8125rem] -tracking-[.14rem]
+  }
+  h4 {
+    @apply text-[2rem] font-medium leading-normal -tracking-[.06em] text-center
+  }
+}
+
+@layer components {
+  .body-2 {
+    @apply text-[#47404C] text-center text-xl leading-normal
+  }
+}

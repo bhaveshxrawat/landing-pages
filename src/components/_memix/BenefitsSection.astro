@@ -1,0 +1,162 @@
+---
+import benefitOne from "@/assets/_memix/benefit-1.svg";
+import benefitTwo from "@/assets/_memix/benefit-2.svg";
+import benefitThree from "@/assets/_memix/benefit-3.svg";
+import benefitFour from "@/assets/_memix/benefit-4.svg";
+import leftCloudImage from "@/assets/_memix/left-cloud.png";
+import midCloudImage from "@/assets/_memix/mid-cloud.png";
+import rightCloudImage from "@/assets/_memix/right-cloud.png";
+import leftTrees from "@/assets/_memix/left-trees.png";
+import rightTrees from "@/assets/_memix/right-trees.png";
+import bird from "@/assets/_memix/bird.png";
+import { Image } from "astro:assets";
+---
+
+<section id="benefits-section" aria-labelledby="benefits">
+  <div
+    class="bg-[#F0D6F0] bg-[url('/benefits-bg.png')] bg-no-repeat py-20 relative">
+    <div role="presentation" class="absolute inset-0 overflow-clip">
+      <Image
+        format="webp"
+        src={leftCloudImage}
+        alt=""
+        class="cloud absolute top-[6.875rem] left-[4.69%]"
+        data-position="left"
+      />
+      <Image
+        format="webp"
+        src={midCloudImage}
+        alt=""
+        class="cloud absolute top-[19.5625rem] left-[42.97%]"
+        data-position="mid"
+      />
+      <Image
+        format="webp"
+        src={rightCloudImage}
+        alt=""
+        class="cloud absolute top-11 right-0"
+        data-position="right"
+      />
+      <Image
+        format="webp"
+        src={leftTrees}
+        alt=""
+        class="tree absolute -bottom-10 -left-[6.875rem]"
+      />
+      <Image
+        format="webp"
+        src={rightTrees}
+        alt=""
+        class="tree absolute -bottom-10 -right-28.75"
+      />
+      <Image
+        format="webp"
+        src={bird}
+        alt=""
+        class="bird absolute top-18 right-6.5"
+      />
+    </div>
+    <div class="relative z-1 max-w-[40.875rem] mx-auto">
+      <h2 id="benefits" class="text-center">
+        What happens once you start a meeting?
+      </h2>
+      <p class="mt-6 body-2 mx-15">
+        We listen, structure, and sort everything in your meeting, before your
+        next coffee refill.
+      </p>
+    </div>
+    <div
+      class="relative z-1 grid grid-flow-row-dense max-w-[52.125rem] grid-cols-2 mx-auto mt-[3.125rem] gap-x-[5.25rem] gap-y-[4rem]">
+      <article>
+        <Image src={benefitOne} alt={""} class="mx-auto" />
+        <h4 class="text-balance mt-6 mb-3">
+          Live Understanding,<br /> Not Just Transcription
+        </h4>
+        <p class="body-2 text-balance">
+          Our AI listens intelligently, not passively, better than even a human
+          assistant
+        </p>
+      </article>
+      <article>
+        <Image src={benefitTwo} alt={""} class="mx-auto" />
+        <h4 class="text-balance mt-6 mb-3">Clean,<br /> Beautiful Notes</h4>
+        <p class="body-2 text-balance">
+          Get smart, structured, and human-readable notes delivered instantly.
+        </p>
+      </article>
+      <article>
+        <Image src={benefitThree} alt={""} class="mx-auto" />
+        <h4 class="text-balance mt-6 mb-3">
+          Action Items,<br /> Sorted Automatically
+        </h4>
+        <p class="body-2 text-balance">
+          Who said what? Who’s doing what? We’ll mark it, assign it, and
+          organize it
+        </p>
+      </article>
+      <article>
+        <Image src={benefitFour} alt={""} class="mx-auto" />
+        <h4 class="text-balance mt-6 mb-3">
+          Instant Sharing<br /> and Syncing
+        </h4>
+        <p class="body-2 text-balance">
+          Send notes to your team, Notion, Slack, or inbox with a click its
+          worthy of sharing
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+<script>
+  import { inView, animate, scroll } from "motion";
+  const section = document.querySelector<HTMLElement>(
+    "section#benefits-section",
+  );
+  const bird = document.querySelector<HTMLImageElement>(".bird");
+  const cloud = document.querySelectorAll<HTMLImageElement>(".cloud");
+  const trees = document.querySelectorAll<HTMLImageElement>(".tree");
+  function getCloudKeyframes<T extends HTMLElement>(item: T) {
+    switch (true) {
+      case item.dataset.position === "left":
+        return {
+          x: [0, -250],
+        };
+      case item.dataset.position === "mid":
+        return {
+          x: [0, 250],
+        };
+      default:
+        return {
+          x: [0, 200],
+        };
+    }
+  }
+  if (section) {
+    cloud.forEach((item) => {
+      const cloudAnimation = animate(item, getCloudKeyframes(item), {
+        ease: "easeInOut",
+      });
+      scroll(cloudAnimation, {
+        target: section,
+        offset: ["start start", "center start"],
+      });
+    });
+    trees.forEach((item) => {
+      const treesAnimation = animate(item, {
+        y: [0, 30]
+      })
+      scroll(treesAnimation, {
+        target: section,
+        offset: ["end end", "end start"]
+      })
+    })
+  }
+  if (bird) {
+    inView(bird, (element) => {
+      const animation = animate(element, { y: [0, 5, 0] }, { duration: 1, repeat: Infinity, ease: "easeInOut" });
+      animation.play()
+      // This will fire when the element leaves the viewport
+      return () => animation.stop();
+    });
+  }
+</script>
