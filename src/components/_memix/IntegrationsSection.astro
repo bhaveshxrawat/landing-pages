@@ -1,0 +1,15 @@
+---
+import integrationsImage from "@/assets/_memix/integrations.png"
+import cloudsImage from "@/assets/_memix/clouds.png"
+import { Image } from "astro:assets"
+---
+
+<section id="integrations-section">
+  <div class="grid grid-cols-1 grid-rows-1">
+    <Image format="webp" src={cloudsImage} alt=""  class="row-start-1 col-start-1"/>
+    <figure class="row-start-1 col-start-1 self-start justify-self-center">
+      <Image format="webp" src={integrationsImage} alt="" />
+      <figcaption class="sr-only">This tool works with your favorite meeting apps like Zoom, Notion, Microsoft Teams, Outlook</figcaption>
+    </figure>
+  </div>
+</section>
