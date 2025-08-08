@@ -1,0 +1,19 @@
+<details class="pl-4 p-2 bg-accent/38 open:bg-accent">
+  <summary class="marker:appearance-none flex gap-6 items-center"
+    ><slot name="title" /><svg
+      class="ml-auto self-start"
+      width="48"
+      height="48"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <rect width="48" height="48" fill="#D498FF"></rect>
+      <path
+        d="M33.5303 23.5303C33.8232 23.2374 33.8232 22.7626 33.5303 22.4697L28.7574 17.6967C28.4645 17.4038 27.9896 17.4038 27.6967 17.6967C27.4038 17.9896 27.4038 18.4645 27.6967 18.7574L31.9393 23L27.6967 27.2426C27.4038 27.5355 27.4038 28.0104 27.6967 28.3033C27.9896 28.5962 28.4645 28.5962 28.7574 28.3033L33.5303 23.5303ZM12 23V23.75H33V23V22.25H12V23Z"
+        fill="black"></path>
+    </svg>
+  </summary>
+  <div class="mt-6">
+    <slot name="content" />
+  </div>
+</details>

@@ -1,0 +1,37 @@
+---
+import { FAQs } from "@/consts/_memix/faq";
+import Accordion from "./ui/Accordion.astro";
+import { Image } from "astro:assets";
+import orangeFlowerImage from "@/assets/_memix/orange-flower.png"
+import blueBirdImage from "@/assets/_memix/blue-bird.png"
+---
+
+<section id="faq-section" aria-labelledby="heading">
+  <div class="py-33">
+    <div class="max-w-180 mx-auto">
+      <h2 class="text-center" id="heading">Answers to everything your mind is doubting about</h2>
+      <p class="body-2 mt-6">
+        Curious minds always welcome, we’ve got answers ready.
+      </p>
+    </div>
+    <div
+      style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.45) .7px, transparent .7px), linear-gradient(to bottom, rgba(0, 0, 0, 0.45) .7px, transparent .7px)"
+      class="max-w-274.5 mx-auto mt-16 bg-[#FFFCFC] bg-size-[84px_84px] px-13 pt-23.25 pb-15 relative">
+      <Image format="webp" alt="" src={orangeFlowerImage} class="absolute -left-15 -top-16"/>
+      <Image format="webp" alt="" src={blueBirdImage} class="absolute right-0 -top-31"/>
+      <div class="space-y-5 max-w-176">
+        {
+          FAQs.map((item) => {
+            return (
+              <Accordion>
+                <p class="body-1" slot="title">{item.question}</p>
+                <p class="body-3 text-left" slot="content">{item.answer}</p>
+              </Accordion>
+            )
+          })
+        }
+      </div>
+    </div>
+
+  </div>
+</section>
