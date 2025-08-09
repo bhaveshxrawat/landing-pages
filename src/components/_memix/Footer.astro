@@ -1,0 +1,50 @@
+---
+import memixLogo from "@/assets/_memix/Memix-logo.svg"
+import footerImage from "@/assets/_memix/footer-bg.png"
+import { Image } from "astro:assets"
+---
+<footer>
+  <div class="p-6.75 bg-[url('/footer-bg.png')] relative min-h-81.25 mt-33">
+    <Image src={footerImage} format="webp" alt="" class="absolute inset-0 -top-17.5 -z-1 object-cover object-bottom"/>
+    <div class="max-w-274.5 mx-auto flex max-md:flex-col max-md:justify-between gap-8 text-[#726779] body-2 text-left justify-between">
+      <a href="/" class="inline-block">
+        <Image src={memixLogo} alt="Memix Logo" />
+      </a>
+      <nav aria-label="Footer navigation">
+        <ul class="space-y-2">
+          <li><a href="#features" class="hover:underline">Features</a></li>
+          <li><a href="#integrations" class="hover:underline">Integrations</a></li>
+          <li><a href="#faqs" class="hover:underline">FAQs</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Company navigation">
+        <ul class="space-y-2">
+          <li><a href="#contact" class="hover:underline">Contact</a></li>
+          <li><a href="#about" class="hover:underline">About Us</a></li>
+        </ul>
+      </nav>
+      <div class="max-w-sm w-full">
+        <p class="mb-4 font-medium">Subscribe to our newsletter</p>
+        <form class="flex items-center bg-white rounded overflow-hidden p-2.5">
+          <label for="email" class="sr-only">Email address</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="john@example.com"
+            class="flex-1 text-black outline-none"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-purple-400 hover:bg-purple-500 transition-colors p-3"
+            aria-label="Subscribe"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7-7 7M21 12H3" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>
