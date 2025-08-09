@@ -1,18 +1,121 @@
 ---
-import memixLogo from "@/assets/_memix/Memix-logo.svg"
-import { Image } from 'astro:assets';
+import memixLogo from "@/assets/_memix/Memix-logo.svg";
+import { Image } from "astro:assets";
+const SITE_NAV = ["Features", "Integrations", "Use cases", "FAQs"];
 ---
 
-<header class="w-full absolute top-9.5 z-2">
-  <div class="max-w-[55rem] w-full mx-auto p-2 flex items-center justify-between border-[0.7px] border-black/50 bg-[rgba(245, 250, 253, 0.64)] backdrop-blur-[6px]">
-    <Image src={memixLogo} alt="Memix Logo" priority />
-    <nav aria-label="Primary navigation">
+<header
+  class="w-full absolute top-9.5 z-2 px-4 max-lg:top-5">
+  <div
+    class="max-w-[55rem] w-full mx-auto p-2 flex items-center justify-between border-[0.7px] border-black/50 bg-[rgba(245,250,253,0.64)] backdrop-blur-[6px]">
+    <Image src={memixLogo} alt="Memix Logo" priority class="max-sm:size-8" />
+    <nav aria-label="Primary navigation" class="max-sm:hidden">
       <ul class="flex items-center gap-6">
         {
-          ["Features", "Integrations", "Use cases", "FAQs"].map((item)=><li class="leading-5 -tracking-[.02rem]"><a href="#">{item}</a></li>)
+          SITE_NAV.map((item) => (
+            <li class="leading-5 -tracking-[.02rem]">
+              <a href="#">{item}</a>
+            </li>
+          ))
         }
       </ul>
     </nav>
-    <a href="#" class="py-2.5 px-4.5 bg-accent inline-block text-lg leading-normal">Start for free<span class="sr-only"> and experience a different a way of attending meeting.</span></a>
+    <a
+      href="#"
+      class="py-2.5 px-4.5 bg-accent inline-block text-lg leading-normal max-sm:hidden"
+      >Start for free<span class="sr-only">
+        and experience a different a way of attending meeting.</span
+      ></a
+    >
+    <button
+      id="menu-btn"
+      aria-expanded="false"
+      aria-controls="menu"
+      aria-haspopup="dialog"
+      class="sm:hidden group">
+      <span class="sr-only">Open the navigation menu</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 14 14">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".5">
+          <rect width="13" height="13" x=".5" y=".5" rx="1"></rect>
+          <path
+            d="M4.5 4.5h5M4.5 7h5m-5 2.5h5"
+            class="in-[[aria-expanded='true']]:rotate-90 origin-center transition-[rotate]"
+          ></path>
+        </g>
+      </svg>
+    </button>
+  </div>
+  <div
+    role="dialog"
+    id="menu"
+    tab-index="-1"
+    class="p-2 hidden will-change-auto mt-3"
+    aria-label="Site's navigation menu">
+    <div class="space-y-4">
+      <nav aria-label="Primary navigation" class="">
+        <ul class="flex flex-col gap-3">
+          {
+            SITE_NAV.map((item) => (
+              <li class="leading-5 -tracking-[.02rem]">
+                <a href="#">{item}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <a
+        href="#"
+        class="px-3 py-2 bg-accent inline-block text-normal leading-normal"
+        >Start for free<span class="sr-only">
+          and experience a different a way of attending meeting.</span
+        ></a
+      >
+    </div>
   </div>
 </header>
+<script>
+  import { animate } from "motion";
+  const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
+  const dialog = document.querySelector<HTMLDivElement>("#menu");
+
+  if (menuBtn && dialog) {
+    let isOpen = menuBtn.ariaExpanded === "true" ? true : false;
+
+    menuBtn.addEventListener("click", () => {
+      isOpen = !isOpen;
+      menuBtn.ariaExpanded = String(isOpen);
+
+      if (isOpen) {
+        // Show element first, then animate in
+        dialog.style.display = "flex";
+        document.body.style.overflow = "hidden";
+        animate(
+          dialog,
+          //@ts-expect-error data type error
+          { y: [-20, 0], opacity: [0, 1] },
+          { duration: 0.3, easing: "ease-out" },
+        );
+      } else {
+        // Animate out, then hide
+        animate(
+          dialog,
+          //@ts-expect-error data type error
+          { y: [0, -20], opacity: [1, 0] },
+          { duration: 0.2, easing: "ease-in" },
+        ).then(() => {
+          document.body.style.overflow = "";
+          dialog.style.display = "none";
+        });
+      }
+    });
+  }
+</script>
