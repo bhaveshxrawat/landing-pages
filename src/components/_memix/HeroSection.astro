@@ -8,40 +8,40 @@ import CTA from "./ui/CTA.astro";
 ---
 
 <section id="hero-section" aria-labelledby="hero-section">
-  <div class="px-10.75 grid grid-cols-1 grid-rows-1">
+  <div class="px-10.75 grid grid-cols-1 grid-rows-1 max-lg:px-6 max-xs:px-0">
     <div
       role="presentation"
-      class="rounded-b-[3.4375rem] border-[0.7px] border-t-0 border-black/50 overflow-clip col-[1/2] row-start-1 bg-gradient-to-b from-3% from-white to-white/7 self-start">
+      class="h-[84.62%] rounded-[3.4375rem] max-lg:rounded-4xl  max-xs:rounded-none border-[0.7px] border-t-0 max-xs:border-0 border-black/50 overflow-clip col-[1/2] row-start-1 bg-gradient-to-b from-3% from-white to-white/7 self-start">
       <Picture
         src={heroImage}
         formats={["avif", "webp"]}
         alt={""}
         priority
         aria-hidden
-        class="pointer-events-none"
+        class="pointer-events-none object-cover object-center h-full"
       />
     </div>
-    <div class="col-[1/2] row-[1/2] pt-[9.6875rem] px-4">
+    <div class="col-[1/2] row-[1/2] pt-38.75 px-4 max-lg:pt-24 max-sm:z-1">
       <div
-        class="flex flex-col justify-start items-center gap-8 max-w-[47rem] mx-auto">
+        class="flex flex-col justify-start items-center gap-8 max-w-[47rem] mx-auto max-lg:gap-5 max-xs:gap-3">
         <h1
           id="hero-section"
-          class="text-[4rem] font-bold leading-[1.09375] -tracking-[.16rem] text-balance text-center">
+          class="text-[4rem] font-bold leading-[1.09375] -tracking-[2.56px] text-balance text-center max-lg:text-5xl max-md:text-4xl max-sm:text-3xl max-xs:tracking-tighter">
           Meetings bloom into<br />clear, actionable notes <Image
             src={noteImage}
             alt=""
-            class="inline"
+            class="inline-block max-lg:size-9 max-xs:size-5"
             aria-hidden
           />
         </h1>
-        <p class="text-lg leading-auto text-[#47404C] text-balance text-center">
+        <p class="text-lg leading-auto text-[#47404C] text-balance text-center max-lg:text-base">
           Every conversation you lead becomes a garden of insights and
           summarized notes, so you can stay focused
         </p>
         <CTA />
       </div>
       <div
-        class="mt-[4.0625rem] rounded-3xl p-2 bg-gradient-to-b from-white/0 to-[#FBF3F0] bg-[#D6D6D6]/40 max-w-[56.25rem] mx-auto"
+        class="mt-[4.0625rem] rounded-3xl p-2 bg-gradient-to-b from-white/0 to-[#FBF3F0] bg-[#D6D6D6]/40 max-w-[56.25rem] mx-auto max-sm:mt-11 max-xs:rounded-sm"
         role="presentation">
         <Picture
           src={heroDashboardImage}
@@ -54,12 +54,12 @@ import CTA from "./ui/CTA.astro";
       </div>
     </div>
     <div
-      class="pointer-events-none col-[1/2] row-[1/2] relative"
+      class="pointer-events-none col-[1/2] row-[1/2] relative max-sm:z-0"
       role="presentation">
       <img
         src={leafImage.src}
         alt={""}
-        class="leaf aspect-square absolute w-[2.9375rem] top-[7.875rem] left-[8.38%]"
+        class="leaf aspect-square absolute w-11.75 top-[12.66%] left-[8.38%] max-sm:w-9.25"
         data-position="top-left"
         data-rotateY="0"
         data-rotateZ="-5"
@@ -67,7 +67,7 @@ import CTA from "./ui/CTA.astro";
       <img
         src={leafImage.src}
         alt={""}
-        class="leaf aspect-square absolute w-[1.4375rem] top-[313px] left-[10.55%]"
+        class="leaf aspect-square absolute w-5.75 top-[30.72%] left-[10.55%] max-sm:w-4.5"
         data-position="mid-left"
         data-rotateY="0"
         data-rotateZ="-70"
@@ -75,7 +75,7 @@ import CTA from "./ui/CTA.astro";
       <img
         src={leafImage.src}
         alt={""}
-        class="leaf aspect-square absolute w-[4.125rem] top-[31.375rem] left-[30.23%]"
+        class="leaf aspect-square absolute w-16.5 top-[49.26%] left-[30.23%] max-sm:w-13"
         data-position="bottom-left"
         data-rotateY="0"
         data-rotateZ="-110"
@@ -83,7 +83,7 @@ import CTA from "./ui/CTA.astro";
       <img
         src={leafImage.src}
         alt={""}
-        class="leaf aspect-square absolute w-[4.8125rem] top-[9.6875rem] right-[8.79%]"
+        class="leaf aspect-square absolute w-19.25 top-[15.21%] right-[8.79%] max-sm:w-15"
         data-position="top-right"
         data-rotateY="180"
         data-rotateZ="0"
@@ -91,7 +91,7 @@ import CTA from "./ui/CTA.astro";
       <img
         src={leafImage.src}
         alt={""}
-        class="leaf aspect-square absolute w-[1.4375rem] top-[313px] right-[4.61%]"
+        class="leaf aspect-square absolute w-5.75 top-[30.72%] right-[4.61%] max-sm:w-4"
         data-position="mid-right"
         data-rotateY="180"
         data-rotateZ="100"
@@ -99,7 +99,7 @@ import CTA from "./ui/CTA.astro";
       <img
         src={leafImage.src}
         alt={""}
-        class="leaf aspect-square absolute w-[2.9375rem] top-[431px] right-[18.34%]"
+        class="leaf aspect-square absolute w-11.75 top-[42.3%] right-[18.34%] max-sm:w-9"
         data-position="bottom-right"
         data-rotateY="180"
         data-rotateZ="0"
@@ -107,7 +107,7 @@ import CTA from "./ui/CTA.astro";
       <img
         src={leafImage.src}
         alt={""}
-        class="leaf aspect-square absolute w-[1.7063rem] top-[568px] right-[45.06%]"
+        class="leaf aspect-square absolute w-6.75 top-[55.74%] right-[45.06%] max-sm:w-5"
         data-position="bottom"
         data-rotateY="0"
         data-rotateZ="-20"
