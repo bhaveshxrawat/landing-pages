@@ -82,10 +82,26 @@ const SITE_NAV = ["Features", "Integrations", "Use cases", "FAQs"];
     </div>
   </div>
 </header>
+<style>
+  header {
+    opacity: 0;
+  }
+</style>
 <script>
   import { animate } from "motion";
-  const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
-  const dialog = document.querySelector<HTMLDivElement>("#menu");
+  const header = document.querySelector<HTMLElement>("header")
+  const menuBtn = header?.querySelector<HTMLButtonElement>("#menu-btn");
+  const dialog = header?.querySelector<HTMLDivElement>("#menu");
+
+  if(header) {
+    animate(header, {
+      opacity: [0, 1],
+      y: [-10, 0]
+    }, {
+      duration: 0.4,
+      ease: "easeIn"
+    })
+  }
 
   if (menuBtn && dialog) {
     let isOpen = menuBtn.ariaExpanded === "true" ? true : false;

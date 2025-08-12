@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "bunx astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "build": "bunx astro build",
+    "preview": "bunx astro preview",
     "astro": "astro"
   },
   "dependencies": {

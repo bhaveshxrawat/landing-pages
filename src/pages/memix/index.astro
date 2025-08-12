@@ -14,7 +14,7 @@ import Footer from "@/components/_memix/Footer.astro";
 <MemixLayout>
   <div class="max-w-[80rem] mx-auto relative">
     <Header />
-    <main class="min-h-[400vh]">
+    <main class="memix">
       <HeroSection />
       <ProblemSection />
       <BenefitsSection />
@@ -26,3 +26,25 @@ import Footer from "@/components/_memix/Footer.astro";
     <Footer />
   </div>
 </MemixLayout>
+<style>
+  .memix :global(section) {
+    opacity: 0;
+    transform-origin: bottom center
+  }
+</style>
+<script>
+  import { animate, inView } from "motion";
+  const sections = document.querySelectorAll<HTMLElement>("section")
+    inView(sections, (section) => { 
+      const animation = animate(section, {
+        y: [15, 0],
+        opacity: [0, 1]
+      }, {
+        duration: 0.2,
+        ease: "easeIn"
+      })
+      animation.play()
+    }, {
+      amount: 0.2
+    })
+</script>
