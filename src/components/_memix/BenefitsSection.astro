@@ -14,62 +14,62 @@ import { Image } from "astro:assets";
 
 <section id="benefits-section" aria-labelledby="benefits">
   <div
-    class="bg-[#F0D6F0] bg-[url('/benefits-bg.png')] bg-no-repeat py-20 relative">
-    <div role="presentation" class="absolute inset-0 overflow-clip">
+    class="bg-[#F0D6F0] bg-[url('/benefits-bg.png')] bg-no-repeat py-20 px-4 relative max-xs:py-10 max-xs:pb-50 bg-cover">
+    <div role="presentation" class="absolute inset-0 overflow-clip pointer-events-none">
       <Image
         format="webp"
         src={leftCloudImage}
         alt=""
-        class="cloud absolute top-[6.875rem] left-[4.69%]"
+        class="cloud absolute top-27.5 left-[4.69%] max-xs:w-113"
         data-position="left"
       />
       <Image
         format="webp"
         src={midCloudImage}
         alt=""
-        class="cloud absolute top-[19.5625rem] left-[42.97%]"
+        class="cloud absolute top-78.25 left-[42.97%] max-xs:w-83"
         data-position="mid"
       />
       <Image
         format="webp"
         src={rightCloudImage}
         alt=""
-        class="cloud absolute top-11 right-0"
+        class="cloud absolute top-11 right-0 max-xs:w-124"
         data-position="right"
       />
       <Image
         format="webp"
         src={leftTrees}
         alt=""
-        class="tree absolute -bottom-10 -left-[6.875rem]"
+        class="tree absolute -bottom-10 -left-27.5 max-xs:w-70"
       />
       <Image
         format="webp"
         src={rightTrees}
         alt=""
-        class="tree absolute -bottom-10 -right-28.75"
+        class="tree absolute -bottom-10 -right-28.75 max-xs:w-61"
       />
       <Image
         format="webp"
         src={bird}
         alt=""
-        class="bird absolute top-18 right-6.5"
+        class="bird absolute top-18 right-6.5 max-xs:w-12"
       />
     </div>
     <div class="relative z-1 max-w-[40.875rem] mx-auto">
       <h2 id="benefits" class="text-center">
         What happens once you start a meeting?
       </h2>
-      <p class="mt-6 body-2 mx-15">
+      <p class="mt-6 body-2 mx-15 max-xs:mx-0 max-xs:text-balance">
         We listen, structure, and sort everything in your meeting, before your
         next coffee refill.
       </p>
     </div>
     <div
-      class="relative z-1 grid grid-flow-row-dense max-w-[52.125rem] grid-cols-2 mx-auto mt-[3.125rem] gap-x-[5.25rem] gap-y-[4rem]">
+      class="relative z-1 grid grid-flow-row-dense max-w-208.5 grid-cols-[repeat(auto-fit,minmax(min(21.875rem,_100%),_1fr))] mx-auto mt-[3.125rem] gap-x-21 gap-y-[4rem] max-lg:gap-x-10">
       <article>
-        <Image src={benefitOne} alt={""} class="mx-auto" />
-        <h4 class="text-balance mt-6 mb-3">
+        <Image src={benefitOne} alt={""} class="mx-auto max-xs:w-25" />
+        <h4 class="text-balance mt-6 mb-3 max-xs:mt-3 max-xs:mb-1">
           Live Understanding,<br /> Not Just Transcription
         </h4>
         <p class="body-2 text-balance">
@@ -78,15 +78,15 @@ import { Image } from "astro:assets";
         </p>
       </article>
       <article>
-        <Image src={benefitTwo} alt={""} class="mx-auto" />
-        <h4 class="text-balance mt-6 mb-3">Clean,<br /> Beautiful Notes</h4>
+        <Image src={benefitTwo} alt={""} class="mx-auto max-xs:w-25" />
+        <h4 class="text-balance mt-6 mb-3 max-xs:mt-3 max-xs:mb-1">Clean,<br /> Beautiful Notes</h4>
         <p class="body-2 text-balance">
           Get smart, structured, and human-readable notes delivered instantly.
         </p>
       </article>
       <article>
-        <Image src={benefitThree} alt={""} class="mx-auto" />
-        <h4 class="text-balance mt-6 mb-3">
+        <Image src={benefitThree} alt={""} class="mx-auto max-xs:w-25" />
+        <h4 class="text-balance mt-6 mb-3 max-xs:mt-3 max-xs:mb-1">
           Action Items,<br /> Sorted Automatically
         </h4>
         <p class="body-2 text-balance">
@@ -95,8 +95,8 @@ import { Image } from "astro:assets";
         </p>
       </article>
       <article>
-        <Image src={benefitFour} alt={""} class="mx-auto" />
-        <h4 class="text-balance mt-6 mb-3">
+        <Image src={benefitFour} alt={""} class="mx-auto max-xs:w-25" />
+        <h4 class="text-balance mt-6 mb-3 max-xs:mt-3 max-xs:mb-1">
           Instant Sharing<br /> and Syncing
         </h4>
         <p class="body-2 text-balance">
