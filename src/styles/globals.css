@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-xs: 22.5rem;
+  --breakpoint-xs: 32.5rem;
 
   --color-accent: rgba(212, 152, 255, 1);
 }
@@ -9,8 +9,8 @@
 @layer base {
   * {
     &:focus-visible {
-      outline: 2px solid var(--color-accent);
-      outline-offset: 1px;
+      outline: 0.125rem solid var(--color-accent);
+      outline-offset: 0.0625rem;
     }
   }
   details {
@@ -21,19 +21,19 @@
     cursor: pointer;
   }
   h2 {
-    @apply text-[3.5rem] font-semibold leading-[3.8125rem] -tracking-[.14rem];
+    @apply text-[3.5rem] font-semibold leading-[3.8125rem] -tracking-[.14rem] max-xs:text-2xl max-xs:leading-normal max-xs:tracking-tight;
   }
   h4 {
-    @apply text-[2rem] font-medium leading-normal -tracking-[.06em] text-center;
+    @apply text-[2rem] font-medium leading-normal -tracking-[.06rem] text-center max-xs:text-xl max-xs:tracking-tight;
   }
 }
 
 @layer components {
   .body-1 {
-    @apply text-2xl leading-normal font-medium;
+    @apply text-2xl leading-normal font-medium max-xs:text-xl;
   }
   .body-2 {
-    @apply text-[#47404C] text-center text-xl leading-normal;
+    @apply text-[#47404C] text-center text-xl leading-normal max-xs:text-base;
   }
   .body-3 {
     @apply text-black text-center text-lg leading-normal;
@@ -43,7 +43,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(0.75rem);
       z-index: -1;
       pointer-events: none;
       background-color: rgba(251, 243, 240, 0.5);
